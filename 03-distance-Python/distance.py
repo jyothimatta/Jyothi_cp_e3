@@ -3,7 +3,10 @@
 # that represent the two points (x1, y1) and (x2, y2), 
 # and returns the distance between those points as a int.
 
-
+import math
 def fun_distance(x1, y1, x2, y2):
 	# your code goes here
-	return 0
+	x = x2 - x1
+	y = y2 - y1
+	dsquared = round(math.sqrt(x**2 + y**2))
+	return dsquared
