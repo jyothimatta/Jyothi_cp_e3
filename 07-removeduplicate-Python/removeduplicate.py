@@ -4,5 +4,13 @@
 # The second or further occurrence of duplicate should be removed.
 
 def removeduplicate(text):
-	# Your code goes here
-	pass
+	a=""
+	b=""
+	for i in text:
+		if i in a:
+			b+=i
+		else:
+			a+=i
+	return a
+# print(removeduplicate(str(input())))
+
