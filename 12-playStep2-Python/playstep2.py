@@ -32,7 +32,46 @@
 # Hint: Then, you may wish to use diceToOrderedHand(a, b, c) at the end to convert the 3 dice back
 # into a sorted hand.
 # Hint: Also, remember to use % to get the one's digit, and use //= to get rid of the one's digit.
-
+def handtodice(hand):
+	digits= [int(d) for d in str(hand)]
+	return tuple(digits)
+def dicetoorderedhand(a, b, c):
+	list=[a,b,c]
+	for i in range(0, len(list)) :
+		list[i] = (list[i])
+		list.sort(reverse = True)
+		h = ([str(i) for i in list])
+		res = int("".join(h))
+		return(res)
 def playstep2(hand, dice):
-	# your code goes here
-	pass
+	a=hand//100
+	b=hand//10
+	b=b%10
+	c=hand%10
+	# print(a,b,c)
+	if(a==b or b==c or c==a):
+		d=dice%10
+		if(a==b):
+			c=d
+		elif(b==c):
+			a=d
+		else:
+			b=d
+		return dicetoorderedhand(a,b,c), dice//10
+	else:
+		# list=[a,b,c]
+		# list.sort(reverse=True)
+		# a=list[0]
+		a=max(a,b,c)
+		h=dice%10
+		dice=dice//10
+		k=dice%10
+		dice=dice//10
+		return dicetoorderedhand(a,h,k),dice
+
+
+
+# print(playstep2(int(input()),int(input())))
+
+
+	
