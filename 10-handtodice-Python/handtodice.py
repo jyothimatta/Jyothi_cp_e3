@@ -7,4 +7,7 @@
 
 def handtodice(hand):
 	# your code goes here
-	pass
+	digits= [int(d) for d in str(hand)]
+	return tuple(digits)
+
+# print(handtodice(int(input())))
