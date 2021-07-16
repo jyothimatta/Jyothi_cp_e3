@@ -12,17 +12,19 @@
 # the list shown to the left would lead to the result shown on 
 # the right when called with row 1 and column 2.
 
-# list
-# [ [ 2, 3, 4, 5],
-#   [ 8, 7, 6, 5],
-#   [ 0, 1, 2, 3] ]
-
+L = [ [ 2, 3, 4, 5],[ 8, 7, 6, 5],[ 0, 1, 2, 3] ]
+row = 1
+col = 2
 # result
 # [ [ 2, 3, 5],
 #   [ 0, 1, 3] ]
 
 def removeRowAndCol(L, row, col):
-    # Your code goes here...
-    pass
+    L.remove(L[row])
+    for i in L:
+        i.pop(col)
+    print(L)
 
+removeRowAndCol(L, row, col)
 # Write your own test cases.
+
