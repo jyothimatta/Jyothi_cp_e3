@@ -11,4 +11,19 @@
 
 def lookandsay(a):
 	# Your code goes here
-	pass
+	if a==[]:
+		return[]
+	num=a[0]
+	result=[]
+	index=0
+	for i in range(len(a)):
+		if(a[i]!=num):
+			length=len(a[index:i])
+			result+=[(length,num)]
+			num=a[i]
+			index=i
+
+		if i==len(a)-1:
+			length=len(a[index:])
+			result+=[(length,num)]
+	return result
