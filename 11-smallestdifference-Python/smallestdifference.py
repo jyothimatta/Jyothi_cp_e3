@@ -5,5 +5,15 @@
 # The two closest numbers in that list are 2 and 6, and their difference is 4.
 
 def smallestdifference(a):
-	# Your code goes here
-	pass
+	diff=10**20
+	if len(a)==0:
+		return -1
+	else:
+		n=len(a)
+		for i in range(n-1):
+			for j in range(i+1,n):
+				if abs(a[i]-a[j]) < diff:
+					diff = abs(a[i] - a[j])
+ 
+	# Return min diff
+	return diff
