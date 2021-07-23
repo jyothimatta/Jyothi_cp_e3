@@ -5,7 +5,11 @@
 
 
 def fun_matrixmultiply(m1, m2):
-    return None
+    if len(m1[0])!=len(m2):
+        return None
+    
+    result=[[sum(a*b for a,b in zip(m1_row,m2_col))for m2_col in zip(*m2)]for m1_row in m1]
+    return result
 
 
 
