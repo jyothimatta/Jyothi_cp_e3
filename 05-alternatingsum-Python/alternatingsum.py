@@ -6,6 +6,11 @@
 
 
 def fun_alternatingsum(a): 
-	return 0
+	if len(a)==0:
+		return 0
+	negative=a[::2]
+	positive=a[1::2]
+	result=sum(negative)-sum(positive)
+	return result
 
 
