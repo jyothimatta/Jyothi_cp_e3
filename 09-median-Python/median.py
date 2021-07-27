@@ -4,5 +4,13 @@
 # element. If the list is empty, return None.
 
 def median(a):
-	# your code goes here
-	pass
+	l=sorted(a)
+	n=len(l)
+	if(n==0):
+		return None
+	if(n%2==0):
+		median=(l[n//2]+l[(n//2)-1])/2
+		return median
+	else:
+		median=l[n//2]
+		return median
