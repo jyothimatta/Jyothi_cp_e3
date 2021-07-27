@@ -9,5 +9,22 @@
 # for primality (and you may need to think about that hint for a while for it to make sense!).
 
 
-def fun_nth_carolprime(n):
-    return 0
+def nthCarolPrime(n):
+    c=0
+    x=1
+    result=0
+    while(c<=n):
+        result = (2**x)-1
+        result=result*result-2
+        if isPrime(result):
+               c+=1
+        x+=1
+    return result
+
+def isPrime(x):
+    if (x < 2):
+        return False
+    for i in range(2,x):
+        if (x % i == 0):
+            return False
+    return True
