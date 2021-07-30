@@ -5,4 +5,7 @@
 
 
 def fun_recursions_alternatingsum(l): 
-	return 0
+	if len(l)==0:
+		return 0
+	
+	return l[0] -fun_recursions_alternatingsum(l[1:])
