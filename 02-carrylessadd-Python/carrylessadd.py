@@ -6,5 +6,10 @@
 
 
 def fun_carrylessadd(x, y):
-	return 0
+	return Add(x, y, 0)
+def Add(x,y,digit):
+    if x == 0 and y == 0:
+        return 0
+    add = (x %10 + y%10)%10
+    return add * 10**digit + Add(x//10, y//10, digit+1)
 
