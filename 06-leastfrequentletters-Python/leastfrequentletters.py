@@ -9,4 +9,14 @@
 
 def leastfrequentletters(s):
 	# Your code goes here
-	pass
+	new=""
+	alpha="abcdefghijklmnopqrstuvwxyz"
+	new_s=s.casefold()
+	#print(new_s)
+	for i in alpha:
+		count=0
+		if i in new_s:
+			count=new_s.count(i)
+		if(count==1):
+			new+=i
+	return new
