@@ -5,7 +5,7 @@ from recursion_binarysearchvalues import recursion_binarysearchvalues
 import pytest
 
 
-L = ['a', 'c', 'f', 'g', 'm', 'q']
+l = ['a', 'c', 'f', 'g', 'm', 'q']
 @pytest.mark.parametrize("value, result",[
 	('a', [(2,'f'), (0,'a')]),
 	('c', [(2,'f'), (0,'a'), (1,'c')]),
@@ -17,4 +17,4 @@ L = ['a', 'c', 'f', 'g', 'm', 'q']
 	('b', [(2,'f'), (0,'a'), (1,'c')])
 ])
 def test_recursion_binarysearchvalues(value, result):
-	assert recursion_binarysearchvalues(L, value) == result
+	assert recursion_binarysearchvalues(l, value) == result
