@@ -13,6 +13,20 @@
 # Again, you do not need to sort the list. We didn't sort it in our sample solution. We just tracked the two largest 
 # values as we recursively traversed the list. Also, you may not use loops/iteration in this problem
 
+def helper1(l,n):
+	if n-1 in l:
+		return n-1
+	else:
+		return helper1(l,n-1)
+def helper(l):
+	if l.count(max(l))>1:
+		return max(l)
+	else:
+		n=max(l)
+		return helper1(l,n)
+
 def recursion_secondlargest(L):
 	# Your code goes here
-	pass
+	if len(L)<2:
+		return None
+	return helper(L)
