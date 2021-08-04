@@ -15,8 +15,21 @@
 # string "None"). So, for example:
 
 def topScorer(data):
-    # Your code goes here...
-    return ""
+    bestScore=0
+    bestPlayer=None
+    splitData=data.splitlines()
+    for line in splitData:
+        playerScore=0
+        entry=line.split(',')
+    for i in range(len(entry)):
+        if i>0:
+            playerScore+=int(entry[i])
+    if playerScore>bestScore:
+        bestScore=playerScore
+        bestPlayer=entry[0]
+    elif playerScore==bestScore:
+        bestPlayer+=',' + entry[0]
+        return bestPlayer
 
 data = '''\
 Fred,10,20,30,40
