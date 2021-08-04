@@ -17,7 +17,44 @@
 # which you may assume is NxN for some N>0, and 
 # returns True if it represents a legal Kings Tour 
 # and False otherwise.
+def read2DArray():
+    a = []
+    l = int(input())
+    for i in range(l):
+        s = input().split(" ")
+        t = []
+        for j in range(len(s)):
+            t.append(int(s[j]))
+        a.append(t)
+    return a
+def getrowcol(L,n):
+    r=len(L)
+    for i in range(r):
+        for j in range(r):
+            if L[i][j]==n:
+                return i,j
+    return -1,-1
+def isvalidmove(r1,c1,r2,c2):
+    if(r1-r2>1 or r1-r2<-1):
+        return False
+    if(c1-c2>1 or c1-c2<-1):
+        return False
+    return True
 
-def isKingsTour(board):
-    # Your code goes here...
-    pass
+def isKingsTour(L):
+    # your code goes here
+    r=len(L)
+    for i in range(r):
+        for j in range(r):
+            if L[i][j]==0:
+                return False
+    i=1
+    while(i<r*r):
+        r1,c1=getrowcol(L,i)
+        r2,c2=getrowcol(L,i+1)
+        if(r1==-1 or r2==-1):
+            return False
+        if isvalidmove(r1,c1,r2,c2)==False:
+            return False
+        i=i+1
+    return True
