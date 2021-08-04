@@ -23,7 +23,35 @@ Thus, in this example, friendsOfFriends should return:
  'ramsay': set()
 }
 '''
+def readDict():
+    a = {}
+    n = int(input())
+    for i in range(n):
+        s = input().split()
+        a[s[0]] = set(s[1:])
+    return a
+
+def fof(d,j):
+    k=[]
+    for i in d[j]:
+        if i in d:
+            for m in d[i]:
+                if m not in d[j] and m not in j:
+                    if m not in k:
+                        k.append(m)
+    return k
 
 def friendsOfFriends(d):
-    # Your code goes here...
-    return None
+    # your code goes here  
+    j={}
+    for i in d:
+        if i not in j:
+            j[i]=fof(d,i)
+    return j
+
+   
+
+d = friendsOfFriends(readDict())
+
+for i in sorted(d.keys()):
+    print(i, sorted(d[i]))
