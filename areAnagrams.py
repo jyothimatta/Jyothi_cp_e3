@@ -12,6 +12,27 @@
 
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
+    d=''
+    
+    s1=s1.upper()
+    for i in s1:
+        if i in s2:
+            d+=1
+        else:
+            d=1
+    for i in s2:
+        if i in s1:
+            d-=1
+            if d==0:
+                del d
+        else:
+            d=0
+    state=(len(s2)==len(s1))
+    if state:
+        return True
+    else:
+        
+        return False
+
 
 # write your test cases here...
