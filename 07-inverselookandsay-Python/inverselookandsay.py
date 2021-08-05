@@ -19,7 +19,17 @@
 # inverseLookAndSay([(1,-1),(1,2),(1,7)]) == [-1,2,7]
 # inverseLookAndSay([(2,3),(1,8),(3,-10)]) == [3,3,8,-10,-10,-10]
 # inverseLookAndSay([(2,3),(1,8),(4,3)]) == [3,3,8,3,3,3,3])
-
+import math, string, copy
 def inverselookandsay(a):
-	# Your code goes here
-	pass
+	if(a==0):
+		return []
+
+	b = []
+	# copy a to avoid aliasing
+	aCopy = copy.copy(a)
+
+	# For tuples (i, j), in aCopy, append j, i times into b
+	for i, j in aCopy:
+		for k in range(i):
+			b.append(j)
+	return b
