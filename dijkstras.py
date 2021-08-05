@@ -31,7 +31,39 @@
 #  0 to 6 (1.51)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52
 #  0 to 7 (0.60)  0->2  0.26   2->7  0.34
 
-class ShortestPaths:
-    # Your code goes here...
-
-# Pleae go through the module resources which you can find in the week - 3 Day - 1
+import sys
+ 
+class Graph():
+ 
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [[0 for column in range(vertices)]
+                      for row in range(vertices)]
+ 
+    def printSolution(self, dist):
+        for node in range(self.V):
+            print(node, "t", dist[node])
+    def minDistance(self, dist, sptSet):
+        min = sys.maxsize
+        for v in range(self.V):
+            if dist[v] < min and sptSet[v] == False:
+                min = dist[v]
+                min_index = v
+ 
+        return min_index
+    def dijkstra(self, src):
+ 
+        dist = [sys.maxsize] * self.V
+        dist[src] = 0
+        sptSet = [False] * self.V
+ 
+        for cout in range(self.V):
+            u = self.minDistance(dist, sptSet)
+            sptSet[u] = True
+            for v in range(self.V):
+                if (self.graph[u][v] > 0 and
+                   sptSet[v] == False and
+                   dist[v] > dist[u] + self.graph[u][v]):
+                    dist[v] = dist[u] + self.graph[u][v]
+ 
+        self.printSolution(dist)
