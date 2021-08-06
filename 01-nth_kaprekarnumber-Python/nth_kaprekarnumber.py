@@ -9,5 +9,26 @@
 
 import math
 
+def rig(n):
+    m=str(n)
+    a=int(len(m)/2)
+    if(len(m)%2==0):
+        return int(m[:a]),int(m[a:])
+    return int(m[:a]),int(m[a:])
+
+
 def fun_nth_kaprekarnumber(n):
-    return 1;
+    res=[]
+    i=1
+    while(len(res)<=n):
+        a=i**2
+        if(i==1):
+            res.append(i)
+        if(a<10):
+            i+=1
+            continue
+        p,q=rig(a)
+        if((p+q)==i):
+            res.append(i)
+        i+=1
+    return res[-1]
