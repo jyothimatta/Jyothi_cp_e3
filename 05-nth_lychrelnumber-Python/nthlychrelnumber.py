@@ -5,6 +5,28 @@
 # The first few Lychrel numbers are 196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887….
 
 
+def palindrome(n):
+	m=str(n)
+	if(m==m[::-1]):
+		return True
+	return False
+
 def nthlychrelnumbers(n):
 	# your code goes here
-	pass
+	max_it=25
+	res=[]
+	i=1
+	while(len(res)<n):
+		s=str(i)
+		num=i
+		for j in range(max_it):
+			s=s[::-1]
+			num=num+int(s)
+			if(palindrome(num)):
+				break
+			s=str(num)
+		if(j==max_it-1):
+			res.append(i)
+		i=i+1
+	print(res)
+	return(res[n-1])
